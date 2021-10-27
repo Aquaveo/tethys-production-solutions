@@ -8,6 +8,8 @@ nav:
       - cloud/index.md
       - Azure: cloud/azure.md
       - Amazon Web Services: cloud/aws.md
+  - Docker:
+      - docker/index.md
 plugins:
   - search
 theme:
