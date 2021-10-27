@@ -1,5 +1,7 @@
 site_name: Tethys Production Solutions
-site_url: https://tethys-production-solutions.readthedocs.org
+site_url: aquaveo.github.io/tethys-production-solutions
+site_author: Nathan Swain
+copyright: Copyright © 2021 Aquaveo, LLC
 nav:
   - Home: index.md
   - Cloud:
