@@ -4,16 +4,17 @@ site_author: Nathan Swain
 copyright: Copyright © 2021 Aquaveo, LLC
 nav:
   - Home: index.md
-  - Cloud:
-      - cloud/index.md
-      - Azure: cloud/azure.md
-      - Amazon Web Services: cloud/aws.md
+  - 'Virtual Machine Images':
+      - vms/index.md
+      - Azure: vms/azure.md
+      - Amazon Web Services: vms/aws.md
   - Docker:
       - docker/index.md
 plugins:
   - search
 theme:
   logo: img/tethys-logo-25.png
+  favicon: img/favicon.png
   name: material
   features:
     - navigation.instant
