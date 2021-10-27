@@ -1,0 +1,34 @@
+site_name: Tethys Production Solutions
+site_url: https://tethys-production-solutions.readthedocs.org
+nav:
+  - Home: index.md
+  - Cloud:
+      - cloud/index.md
+      - Azure: cloud/azure.md
+      - Amazon Web Services: cloud/aws.md
+plugins:
+  - search
+theme:
+  logo: img/tethys-logo-25.png
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+#    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      primary: blue
+      accent: deep orange
+      scheme: default
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: blue grey
+      accent: orange
+      scheme: slate
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light mode

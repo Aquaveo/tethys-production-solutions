@@ -1,0 +1,9 @@
+name: tps
+channels:
+  - defaults
+dependencies:
+  - pip
+  - python
+  - pip:
+    - mkdocs
+    - mkdocs-material
