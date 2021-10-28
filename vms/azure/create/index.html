@@ -1,0 +1,1036 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Nathan Swain">
+      
+      
+        <link rel="canonical" href="https://aquaveo.github.io/tethys-production-solutions/vms/azure/create/">
+      
+      <link rel="icon" href="../../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.5">
+    
+    
+      
+        <title>Create VM - Tethys Production Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cdeb8541.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#create-virtual-machine" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Tethys Production Solutions" class="md-header__button md-logo" aria-label="Tethys Production Solutions" data-md-component="logo">
+      
+  <img src="../../../img/tethys-logo-25.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tethys Production Solutions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Create VM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        Virtual Machine Images
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../docker/" class="md-tabs__link">
+        Docker
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Tethys Production Solutions" class="md-nav__button md-logo" aria-label="Tethys Production Solutions" data-md-component="logo">
+      
+  <img src="../../../img/tethys-logo-25.png" alt="logo">
+
+    </a>
+    Tethys Production Solutions
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Virtual Machine Images</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Virtual Machine Images" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Virtual Machine Images
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Azure</a>
+          
+            <label for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Azure" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Azure
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Create VM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Create VM
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-login-to-azure-portal" class="md-nav__link">
+    1. Login to Azure Portal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-navigate-to-virtual-machines-management-page" class="md-nav__link">
+    2. Navigate to Virtual machines management page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-virtual-machine" class="md-nav__link">
+    3. Create virtual machine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configure-virtual-machine" class="md-nav__link">
+    4. Configure virtual machine
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configure virtual machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-details" class="md-nav__link">
+    Project Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-details" class="md-nav__link">
+    Instance Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrator-account" class="md-nav__link">
+    Administrator account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inbound-port-rules" class="md-nav__link">
+    Inbound port rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#licensing" class="md-nav__link">
+    Licensing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-create-disks" class="md-nav__link">
+    5. Create disks
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Create disks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disk-options" class="md-nav__link">
+    Disk Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-disks-optional" class="md-nav__link">
+    Data disks (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-review-other-tabs" class="md-nav__link">
+    6. Review other tabs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-review-and-create" class="md-nav__link">
+    7. Review and create
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-twiddle-thumbs" class="md-nav__link">
+    8. Twiddle thumbs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-review-resource-page" class="md-nav__link">
+    9. Review resource page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-view-the-tethys-portal" class="md-nav__link">
+    10. View the Tethys Portal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What's Next?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure/" class="md-nav__link">
+        Configure VM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apps/" class="md-nav__link">
+        Install Apps
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aws/" class="md-nav__link">
+        Amazon Web Services
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../docker/">Docker</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Docker" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-login-to-azure-portal" class="md-nav__link">
+    1. Login to Azure Portal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-navigate-to-virtual-machines-management-page" class="md-nav__link">
+    2. Navigate to Virtual machines management page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-virtual-machine" class="md-nav__link">
+    3. Create virtual machine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configure-virtual-machine" class="md-nav__link">
+    4. Configure virtual machine
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configure virtual machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-details" class="md-nav__link">
+    Project Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-details" class="md-nav__link">
+    Instance Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrator-account" class="md-nav__link">
+    Administrator account
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inbound-port-rules" class="md-nav__link">
+    Inbound port rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#licensing" class="md-nav__link">
+    Licensing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-create-disks" class="md-nav__link">
+    5. Create disks
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Create disks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disk-options" class="md-nav__link">
+    Disk Options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-disks-optional" class="md-nav__link">
+    Data disks (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-review-other-tabs" class="md-nav__link">
+    6. Review other tabs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-review-and-create" class="md-nav__link">
+    7. Review and create
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-twiddle-thumbs" class="md-nav__link">
+    8. Twiddle thumbs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-review-resource-page" class="md-nav__link">
+    9. Review resource page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-view-the-tethys-portal" class="md-nav__link">
+    10. View the Tethys Portal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What's Next?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="create-virtual-machine">Create Virtual Machine</h1>
+<h2 id="1-login-to-azure-portal">1. Login to Azure Portal</h2>
+<p>Navigate to https://azure.microsoft.com/ and Sign In using the <strong><em>Sign in</em></strong> link. Open the user dropdown menu and click on the <strong><em>Azure Portal</em></strong> link.</p>
+<p><img alt="Azure Portal link in the user menu" src="../../../img/vms/azure/create--azure-portal.png" /></p>
+<p><strong>Azure Portal link in the user menu.</strong></p>
+<h2 id="2-navigate-to-virtual-machines-management-page">2. Navigate to Virtual machines management page</h2>
+<p>Use the search bar to search for "Virtual machine" and select the <strong><em>Virtual machines</em></strong> link.</p>
+<p><img alt="Search for virtual machines" src="../../../img/vms/azure/create--search-virtual-machines.png" /></p>
+<p><strong>Search for "Virtual machine".</strong></p>
+<h2 id="3-create-virtual-machine">3. Create virtual machine</h2>
+<p>Click on the <strong><em>Create</em></strong> button to open the drop-down menu and select <strong><em>Virtual machine</em></strong>.</p>
+<p><img alt="Create a new virtual machine" src="../../../img/vms/azure/create--create-virtual-machine.png" /></p>
+<p><strong>Create a new virtual machine.</strong></p>
+<h2 id="4-configure-virtual-machine">4. Configure virtual machine</h2>
+<p>Fill in the "Create a virtual machine" form as follows:</p>
+<h3 id="project-details">Project Details</h3>
+<ul>
+<li><strong>Subscription</strong>: Select the desired subscription that will be used for billing the virtual machine usage.</li>
+<li><strong>Resource group</strong>: Select a resource group or create a new one using the <strong><em>Create new</em></strong> link.</li>
+</ul>
+<h3 id="instance-details">Instance Details</h3>
+<p>These are technical details about the virtual machine that will be created.</p>
+<ul>
+<li><strong>Virtual machine name</strong>: Give the virtual machine a name.</li>
+<li><strong>Region</strong>: Select an appropriate region, this is the approximate location of the data center where the virtual machine will be created.</li>
+<li><strong>Image</strong>: Search for "tethys-platform" and select the "tethys_platform/tethys-platform-base/latest" image.</li>
+<li><strong>Size</strong>: Choose the size of hardware for your virtual machine. We recommend a machine with at least 2 cpus (vcpus) and 4 GiB of memory (e.g. Standard_B2s). Click on the <strong><em>See all sizes</em></strong> link to see a list of all the sizes to compare costs.</li>
+</ul>
+<h3 id="administrator-account">Administrator account</h3>
+<p>Specify the credentials for the administrator account as well. This account will be used to log in to the virtual machine:</p>
+<ul>
+<li><strong>Authentication type</strong>: We recommend using SSH public keys, but you can use a password if you are not sure what an SSH key is.</li>
+<li><strong>Username</strong>: Create a unique username (don't use something generic like "admin").</li>
+<li><strong>SSH public key source</strong> and <strong>Key pair name</strong>: if using SSH keys, you can choose to create a new key pair or use an existing key pair if you have one already.</li>
+</ul>
+<h3 id="inbound-port-rules">Inbound port rules</h3>
+<ul>
+<li><strong>Public inbound ports</strong>: Select <strong><em>Allow selected ports</em></strong>.</li>
+<li><strong>Select inbound ports</strong>: Select <strong><em>SSH (22)</em></strong> and either of <strong><em>HTTP (80)</em></strong> or <strong><em>HTTPS (443)</em></strong>.</li>
+</ul>
+<h3 id="licensing">Licensing</h3>
+<ul>
+<li><strong>License type</strong>: Select <strong><em>Other</em></strong>.</li>
+</ul>
+<p><img alt="Example of create a virtual machine form" src="../../../img/vms/azure/create--create-vm-basics.png" /></p>
+<p><strong>Example of the "Create a virtual machine" form.</strong></p>
+<h2 id="5-create-disks">5. Create disks</h2>
+<p>Press the <strong><em>Next: Disks &gt;</em></strong> button to proceed to the <strong>Disks</strong> tab. You will create the hard drive for the virtual machine to use on this page.</p>
+<h3 id="disk-options">Disk Options</h3>
+<ul>
+<li><strong>OS disk type</strong>: Select the type of disk you'd like the VM to have. We'd recommend one of the SSD options. Standard SSD should work for a lot of deployments, but if you plan to use GeoServer, you may want to consider Premium SSD for better performance.</li>
+<li><strong>Encryption type</strong>: adjust to taste.</li>
+</ul>
+<h3 id="data-disks-optional">Data disks (optional)</h3>
+<p>Use this section to attach additional disks to the VM if you'd like.</p>
+<h2 id="6-review-other-tabs">6. Review other tabs</h2>
+<p>The default options in the other tabs should be ok, but take a few minutes to click through the tabs and review the options.</p>
+<p>When you are done, click on the <strong><em>Review + create</em></strong> button.</p>
+<h2 id="7-review-and-create">7. Review and create</h2>
+<p>Review the options and make any changes if needed. Then press the <strong><em>Create</em></strong> button.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If you chose to generate a new key pair, don't forget to download the private key. Keep this file in a safe place and don't lose it.</p>
+</div>
+<h2 id="8-twiddle-thumbs">8. Twiddle thumbs</h2>
+<p>It will take a few minutes for the virtual machine and side-car resources to be created. You should be taken to a progress page like the one below that will keep you apprised of the deployment status.</p>
+<p><img alt="Virtual machine deployment progress page" src="../../../img/vms/azure/create--deploy-progress.png" /></p>
+<p><strong>Deployment progress page.</strong></p>
+<h2 id="9-review-resource-page">9. Review resource page</h2>
+<p>When finished, the progress page will report something like "Your deployment is complete". At this point, press the <strong><em>Go to resource</em></strong> button. </p>
+<p>This will bring you to the Overview page of the Virtual Machine. This view provides a sort of dashboard for the virtual machine and provides controls for starting, stopping, and connecting to the virtual machine. </p>
+<p>Take a few minutes to familiarize yourself with the Overview page. If you are feeling brave you may also want to click through the other links in the navigation on the left to familiarize you with their content.</p>
+<p><img alt="Virtual machine resource overview page" src="../../../img/vms/azure/create--virtual-machine-overview.png" /></p>
+<p><strong>Virtual machine resource overview page.</strong></p>
+<h2 id="10-view-the-tethys-portal">10. View the Tethys Portal</h2>
+<p>A few minutes after the Virtual Machine starts, Tethys Portal should be viewable. Locate the <strong>Public IP address</strong> field in the <strong>Essentials</strong> section (top-right). This is the IP address the virtual machine and where you can access it for now.</p>
+<p>a. Press the <strong><em>Copy to clipboard</em></strong> button next to the IP address.</p>
+<p><img alt="Copy the public IP address" src="../../../img/vms/azure/create--copy-public-ip.png" /></p>
+<p><strong>Copy the public IP address.</strong></p>
+<p>b. Paste the IP address in the address bar of a new tab in your web browser. A default version of Tethys Portal should be displayed.</p>
+<p><img alt="Tethys Portal running on Azure VM" src="../../../img/vms/azure/create--tethys-portal.png" /></p>
+<p><strong>Tethys Portal running on Azure VM.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It can take Tethys Platform a few minutes to start up after the VM starts. If you receive a 502 Gateway error, wait a few minutes and try again.</p>
+</div>
+<h2 id="additional-resources">Additional Resources</h2>
+<p>Use the following resources to learn more about creating Virtual Machines on Microsoft Azure:</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/">Virtual machines in Azure</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal">Quickstart: Create a Linux virtual machine in Azure portal</a></li>
+<li><a href="https://docs.microsoft.com/en-us/learn/modules/create-linux-virtual-machine-in-azure/">Create a Linux virtual machine in Azure</a></li>
+<li><a href="https://docs.microsoft.com/en-us/troubleshoot/azure/virtual-machines/welcome-deployment-troubleshooting">VM deployment issues</a></li>
+</ul>
+<h2 id="whats-next">What's Next?</h2>
+<p>Congratulations! You have a Tethys Portal running in Azure. In the next tutorial you will learn how connect to the VM and configure and customize the Tethys Portal.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Microsoft Azure" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Microsoft Azure
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../configure/" class="md-footer__link md-footer__link--next" aria-label="Next: Configure VM" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Configure VM
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2021 Aquaveo, LLC
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>
