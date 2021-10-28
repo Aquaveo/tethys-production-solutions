@@ -6,7 +6,11 @@ nav:
   - Home: index.md
   - 'Virtual Machine Images':
       - vms/index.md
-      - Azure: vms/azure.md
+      - Azure:
+        - vms/azure/index.md
+        - 'Create VM': vms/azure/create.md
+        - 'Configure VM': vms/azure/configure.md
+        - 'Install Apps': vms/azure/apps.md
       - Amazon Web Services: vms/aws.md
   - Docker:
       - docker/index.md
@@ -37,3 +41,7 @@ theme:
       toggle:
         icon: material/lightbulb
         name: Switch to light mode
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
